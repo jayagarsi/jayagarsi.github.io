@@ -2,16 +2,23 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>MyBlog</title>
+    <meta charset="utf-8">
+    <title> {{config.title}} </title>
 </head>
 
+<link rel="stylesheet" href="/style.css">
+
 <body>
-  <section class="section">
-    <div class="container">
-      {% block content %} {% endblock content %}
-    </div>
-  </section>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/projects/">Projects</a>
+    </nav>
+    <section class="section">
+        <div class="container">
+            {% block content %} {% endblock content %}
+        </div>
+    </section>
 </body>
 
 </html>
