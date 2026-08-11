@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <title> {{config.title}} </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
 </head>
-
-<link rel="stylesheet" href="/style.css">
-
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/projects/">Projects</a>
-    </nav>
-    <section class="section">
-        <div class="container">
-            {% block content %} {% endblock content %}
-        </div>
-    </section>
+  <nav>
+    <a href="{{ get_url(path="@/_index.md") }}">Home</a>
+    <a href="{{ get_url(path="@/about.md")}}">About</a>
+    <a href="{{ get_url(path="@/cv.md") }}">CV</a>
+    <a href="{{ get_url(path="@/projects/_index.md") }}">Projects</a>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </nav>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <script src="{{ get_url(path="theme.js") }}"></script>
 </body>
-
 </html>

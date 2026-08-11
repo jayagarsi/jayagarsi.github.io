@@ -1,8 +1,7 @@
 +++
-title = "About me"
-sort_by = "date"
-template = "blog.html"
-page_template = "blog-page.html"
+title = "About Me"
+template = "page.html"
+path = "about"
 +++
 
-I am a Computer Scientist based in Barcelona who enjoys many different things.
+Hello! My name is Jaya and I am a graduate in Computer Science based in Barcelona.
