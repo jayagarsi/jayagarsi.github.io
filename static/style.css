@@ -60,9 +60,9 @@ nav button {
 }
 
 .about-pfp {
+  max-width: 100%;
   width: 300px;
   height: auto;
-  position: relative;
 }
 
 .two-col {
