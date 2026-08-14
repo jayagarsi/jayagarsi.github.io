@@ -23,7 +23,6 @@ body {
 
 a { color: var(--link); }
 
-
 nav {
   display: flex;
   gap: 16px;
@@ -60,6 +59,14 @@ nav button {
   white-space: pre-wrap;
 }
 
+.about-pfp {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+  position: relative;
+  object-position: 50% 50%;
+}
+
 .two-col {
   column-count: 2
 }
@@ -68,4 +75,10 @@ nav button {
   display: block; /* makes it have a width */
   content: ""; /* clears default height */
   margin-bottom: 5px; /* change this to whatever height you want it */
+}
+
+.CodeMirror {
+  height: 300px;
+  font-size: 14px;
+  border-radius: 6px;
 }

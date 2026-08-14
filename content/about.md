@@ -6,6 +6,8 @@ path = "about"
 
 Hello! My name is Jaya and I am a graduate in Computer Science based in Barcelona. 
 
+<img src="/images/profile.jpeg" alt="A photo of me" class="about-pfp">
+
 
 # Experience
 
@@ -13,5 +15,5 @@ Since I started my degree, my energy has gone mainly into studying Theoretial Co
 
 # Personal
 
-Besides being a huge nerd about computer science, I am also quite fond of music and arts. I am into different genres of music lik classical music, pop, rock, indie, etc. I also play the violin and the classical guitar. 
+Besides being a huge nerd about computer science, I am also quite fond of music and arts. I am into different genres of music like classical music, pop, rock, indie, etc. I also play the violin and the classical guitar. 
 <!-- Below you can find some music I like and some projects I have participated in too! -->

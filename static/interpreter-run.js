@@ -1,22 +1,22 @@
 let pyodide;
 const statusEl = document.getElementById("status");
 const runBtn = document.getElementById("run-btn");
-const codeInput = document.getElementById("code-input");
 const errorEl = document.getElementById("error-output");
 const audioEl = document.getElementById("output-audio");
 
+// Initialize CodeMirror on the #editor div
+const editor = CodeMirror(document.getElementById("editor"), {
+  lineNumbers: true,
+  theme: "dracula",
+  mode: null, // no built-in mode for a custom language yet
+  tabSize: 2,
+  value: "// write your program here"
+});
+
 async function init() {
   pyodide = await loadPyodide();
-
-  // ADJUST: path to your interpreter's .py file, served from /static
   const interpreterCode = await (await fetch("/interpreter/interpreter.py")).text();
   pyodide.FS.writeFile("interpreter.py", interpreterCode);
-
-  // If your interpreter needs extra packages, uncomment and edit:
-  // await pyodide.loadPackage("micropip");
-  // const micropip = pyodide.pyimport("micropip");
-  // await micropip.install(["numpy"]);
-
   statusEl.textContent = "Ready.";
   runBtn.disabled = false;
 }
@@ -28,10 +28,9 @@ async function runCode() {
   runBtn.textContent = "Running...";
 
   try {
-    const userCode = codeInput.value;
-    pyodide.FS.writeFile("input.src", userCode); // ADJUST extension if needed
+    const userCode = editor.getValue(); // pull from CodeMirror instead of textarea
+    pyodide.FS.writeFile("input.src", userCode);
 
-    // ADJUST: this must match your interpreter's actual entry point/function name
     await pyodide.runPythonAsync(`
 import interpreter
 interpreter.run("input.src", "output.wav")
