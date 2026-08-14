@@ -23,6 +23,7 @@ body {
 
 a { color: var(--link); }
 
+
 nav {
   display: flex;
   gap: 16px;
@@ -57,4 +58,14 @@ nav button {
   color: #cc3333;
   margin-top: 10px;
   white-space: pre-wrap;
+}
+
+.two-col {
+  column-count: 2
+}
+
+.br-small {
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-bottom: 5px; /* change this to whatever height you want it */
 }
