@@ -1,0 +1,78 @@
+%YAML 1.2
+---
+name: JSBach
+file_extensions: [jsb]
+scope: source.jsbach
+
+contexts:
+  main:
+    # Comments: ~~~ ... ~~~ (whole line)
+    - match: '~~~.*$'
+      scope: comment.line.jsbach
+
+    # Block delimiters
+    - match: '\|:'
+      scope: punctuation.section.block.begin.jsbach
+    - match: ':\|'
+      scope: punctuation.section.block.end.jsbach
+
+    # Keywords
+    - match: '\b(if|while|Main)\b'
+      scope: keyword.control.jsbach
+
+    # Built-in functions
+    - match: '\b(random)\b'
+      scope: support.function.jsbach
+
+    # Output operators
+    - match: '<!>'
+      scope: keyword.operator.output.error.jsbach
+    - match: '<:>'
+      scope: keyword.operator.output.debug.jsbach
+
+    # Assignment
+    - match: '<-'
+      scope: keyword.operator.assignment.jsbach
+
+    # Comparison operators
+    - match: '(<=|>=|<|>|=)'
+      scope: keyword.operator.comparison.jsbach
+
+    # Arithmetic operators
+    - match: '[\+\-\*/]'
+      scope: keyword.operator.arithmetic.jsbach
+
+    # Length-of operator
+    - match: '#'
+      scope: keyword.operator.length.jsbach
+
+    # Strings
+    - match: '"'
+      scope: punctuation.definition.string.begin.jsbach
+      push: string_body
+
+    # Numbers
+    - match: '\b[0-9]+\b'
+      scope: constant.numeric.jsbach
+
+    # Arrays / blocks of values
+    - match: '\{'
+      scope: punctuation.section.braces.begin.jsbach
+    - match: '\}'
+      scope: punctuation.section.braces.end.jsbach
+
+    # Indexing brackets
+    - match: '\['
+      scope: punctuation.section.brackets.begin.jsbach
+    - match: '\]'
+      scope: punctuation.section.brackets.end.jsbach
+
+    # Function/variable names (anything else word-like)
+    - match: '\b[a-zA-Z_][a-zA-Z0-9_]*\b'
+      scope: variable.other.jsbach
+
+  string_body:
+    - meta_scope: string.quoted.double.jsbach
+    - match: '"'
+      scope: punctuation.definition.string.end.jsbach
+      pop: true 
