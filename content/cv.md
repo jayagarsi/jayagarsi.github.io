@@ -53,16 +53,16 @@ path = "cv"
 
 <details>
     <summary> <b>Technical Research Assistant, Universitat Autònoma de Barcelona</b>, <i> Oct. 2024 - Feb. 2026 </i> </summary>
-    Worked for the <a href="https://webs.uab.cat/intelligent-transportation-systems/", target="_blank" rel="noopener noreferrer">Intelligent Transport System (UAB)</a> research group.
+    Worked for the <a href="https://webs.uab.cat/intelligent-transportation-systems/" target="_blank" rel="noopener noreferrer">Intelligent Transport System (UAB)</a> research group.
 </details>
 <br class="br-small">
 <details>
     <summary> <b>Orchestra Tour Intern, BMAT Music Innovators</b>, <i> Oct. 2022 - July 2023 </i> </summary>
-    Worked as a Front-End developer for different web software products.
+    At BMAT I worked as a Front-End developer for different web software products. My job was to add new features to the backend or the frontend of the websites. Here I learned almost everything I know of Jira and methologies like Agile. My supervisor taught me all I need to know to have proper software design and how to work together in a team using Git.
     <br>
 </details>
 <br class="br-small">
 <details>
     <summary> <b>Reinforcement Teacher, Universitat Politècnica de Catalunya</b>, <i> Sept. 2021 - July 2022</i> </summary>
-    Was involved in the project <i>Aula Lliure</i> as a reinforcement teacher for first year subjects.
+    Was involved in the project <i>Aula Lliure</i> as a reinforcement teacher for first year subjects. My job was to provide help to first year students with the subjects <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering/curriculum/syllabus/EC" target="_blank" rel="noopener noreferrer">Computer Organization</a> and <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering/curriculum/syllabus/FM" target="_blank" rel="noopener noreferrer">Fundamentals of Mathematics</a>. I mainly solved the doubts they had from class and provided exercises to do and corrected them afterwards.
 </details>
