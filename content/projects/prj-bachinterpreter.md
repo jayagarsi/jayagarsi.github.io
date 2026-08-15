@@ -9,6 +9,8 @@ repo_url = "https://github.com/jayagarsi/Practica-LP"
 
 This project is a double interpreter for a musical language called JSBach. The language was designed to help implement musical compositions through programming algorithms. This was an assignment developed in the Programming Languages course at UPC.
 
+The interpreter first reads JSBach code and process its in Python using the ANTLR framework. Then, after executing, any code that generates music is also converted into a Lilypad code. Lilypad is a programming language that lets you write music and then convert it into ```pdf```, ```wav``` and ```mp3``` files. The difference between JSBach and Lilypad is that JSBach is an imperative language that allows for writing algorithms and making computations and also generating music from this algorithms. Once the Lilypad code is generated, this is executed to obtain the ```pdf```, ```mp3``` and ```wav``` files for the generated notes.
+
 Let us go over the simpe Insertion Sort algorithm implemented in JSBach. Notice how the syntax is quite similar to that of python.
 
 ```python
@@ -49,12 +51,29 @@ BinarySearch a t |:
 
 ```
 
-The output consists of a set of audio files (```.mp3``` and ```.wav```) and a pdf file with the chore.
+The interpreter first generates the ```.lily``` file
+
+```lily
+\version "2.20.0" 
+\score {
+   \absolute { 
+        \tempo 4 = 120
+         b, <f, e > 4
+d'' <a' g'' > 4
+e'' <b' a'' > 4
+g' <d' c'' > 4
+g' 
+         <d' c'' > 4
+
+   } 
+   \layout { } 
+   \midi { } 
+}
+```
+
+And then, this code outputs a set of audio files (```.mp3``` and ```.wav```) and a pdf file with the chore.
 
 <audio controls src="/audio/binarysearch-1.mp3"></audio>
 <audio controls src="/audio/binarysearch-2.mp3"></audio>
 
 The language is very simple. Since it is interpreted by Python, the memory mangement is the same. For now, one can make recursive programs, list definitions, numeric computations, random generation of values, playing of notes and boolean operations. The full code can be checked in the Github, however for now the descriptions are all written in Catalan.
-
-## Language Specification
-

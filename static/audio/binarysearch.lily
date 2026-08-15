@@ -1,0 +1,15 @@
+\version "2.20.0" 
+\score {
+   \absolute { 
+        \tempo 4 = 120
+         b, <f, e > 4
+d'' <a' g'' > 4
+e'' <b' a'' > 4
+g' <d' c'' > 4
+g' 
+         <d' c'' > 4
+
+   } 
+   \layout { } 
+   \midi { } 
+}
