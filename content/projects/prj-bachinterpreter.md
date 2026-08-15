@@ -76,4 +76,8 @@ And then, this code outputs a set of audio files (```.mp3``` and ```.wav```) and
 <audio controls src="/audio/binarysearch-1.mp3"></audio>
 <audio controls src="/audio/binarysearch-2.mp3"></audio>
 
+Of course the music does not sound too good, since this is randomly generated. However some more beautiful things can be done like this one, obtained by executing the algorithm to solve the Hanoi problem.
+
+<audio controls src="/audio/hanoi.mp3"></audio>
+
 The language is very simple. Since it is interpreted by Python, the memory mangement is the same. For now, one can make recursive programs, list definitions, numeric computations, random generation of values, playing of notes and boolean operations. The full code can be checked in the Github, however for now the descriptions are all written in Catalan.
