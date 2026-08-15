@@ -15,3 +15,11 @@ toggle.addEventListener('click', () => {
   localStorage.setItem('theme', next);
   toggle.textContent = next === 'dark' ? '☀️' : '🌙';
 });
+
+if (window.mermaid) {
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: next === 'dark' ? 'dark' : 'default'
+  });
+  mermaid.run(); // re-render existing diagrams with the new theme
+}

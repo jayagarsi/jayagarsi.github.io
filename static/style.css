@@ -39,6 +39,18 @@ nav button {
   padding: 4px 8px;
 }
 
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+pre code {
+  white-space: pre;
+}
+
 .about-pfp {
   max-width: 100%;
   width: 300px;

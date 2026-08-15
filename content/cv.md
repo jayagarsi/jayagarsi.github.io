@@ -46,14 +46,14 @@ path = "cv"
             <li> Graphics </li>
             <li> Artificial Intelligence </li>
         </ul>
-        My thesis is called <i>Flow-Based Network Creation Games: Social Optima and Equilibria </i>. The work is an extension on a model called <a href="https://arxiv.org/pdf/2006.14964", target="_blank", rel="noopener noreferrer">Flow-based network creation games </a>. This is a Game Theory model that aims to give another option to build links between endpoints in a network taking into account the different social and economic interests. My work was to simulate the model and extract different experimental properties. The details and results can be read in the <a href="https://upcommons.upc.edu/entities/publication/e3be577c-9121-4404-b944-020fa4b873e1", target="_blank", rel="noopener noreferrer">original work.</a>
+        My thesis is called <i>Flow-Based Network Creation Games: Social Optima and Equilibria </i>. The work is an extension on a model called <a href="https://arxiv.org/pdf/2006.14964", target="_blank", rel="noopener noreferrer">Flow-based network creation games </a>. This is a Game Theory model that aims to give another option to build links between endpoints in a network taking into account the different social and economic interests. My work was to simulate the model and extract different experimental properties. The details and results can be read in the <a href="https://upcommons.upc.edu/entities/publication/e3be577c-9121-4404-b944-020fa4b873e1", target="_blank" rel="noopener noreferrer">original work.</a>
 </details>
 
 ## Experience
 
 <details>
     <summary> <b>Technical Research Assistant, Universitat Autònoma de Barcelona</b>, <i> Oct. 2024 - Feb. 2026 </i> </summary>
-    Worked for the <a href="https://webs.uab.cat/intelligent-transportation-systems/" target="_blank" rel="noopener noreferrer">Intelligent Transport System (UAB)</a> research group.
+    Worked for the <a href="https://webs.uab.cat/intelligent-transportation-systems/" target="_blank" rel="noopener noreferrer">Intelligent Transport System (UAB)</a> research group. I was involved in the <a href="https://sesar.eu/projects/ANTICIPATE" target="_blank" rel="noopener noreferrer">ANTICIPATE</a> project. My work was to develop a software that computed the number of fligths in an airspace volume given a time value. In this projec, I learnt about software development, since I had to work on a given UML and propose new ideas of how to distribute the code better. I also learned about geodesic algorithms and I had the chance to apply my knowlede of data structures and algorithms to fasten the computation. For the second project I had to work on a discrete-event simulator of a framework model called <a href="https://functionalresonance.com/the-fram-model-visualiser/" target="_blank" rel="noopener noreferrer">FRAM</a>. In this project I gained more knowledege about discrete event processes and how to simulated them properly, as well as real time simulations. 
 </details>
 <br class="br-small">
 <details>
