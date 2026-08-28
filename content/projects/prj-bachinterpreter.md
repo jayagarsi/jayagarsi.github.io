@@ -5,6 +5,7 @@ template = "project_page.html"
 
 [extra]
 repo_url = "https://github.com/jayagarsi/Practica-LP"
+image = "/images/jsbach.jpg"
 +++
 
 This project is a double interpreter for a musical language called JSBach. The language was designed to help implement musical compositions through programming algorithms. This was an assignment developed in the Programming Languages course at UPC. The interpreter is implemented with ANTLR and Python and it works as follows:
