@@ -2,7 +2,22 @@
 {% block title %}Projects — {{ config.title }}{% endblock %}
 {% block content %}
   <h1>Projects</h1>
-  <ul class="project-list">
+  <div class="project-grid">
+  {% for page in section.pages %}
+    <a href="{{ page.permalink }}" class="project-card">
+      {% if page.extra.image %}
+        <img src="{{ page.extra.image }}" alt="{{ page.title }}">
+      {% endif %}
+      <h2>{{ page.title }}</h2>
+      <p>{{ page.description }}</p>
+    </a>
+  {% endfor %}
+  </div>
+{% endblock %}
+
+
+<!--
+<ul class="project-list">
   {% for page in section.pages %}
     <li>
       <a href="{{ page.permalink }}">{{ page.title }}</a>
@@ -10,4 +25,4 @@
     </li>
   {% endfor %}
   </ul>
-{% endblock %}
+-->
