@@ -56,7 +56,7 @@ graph LR
     A --->|ε| P
 </pre>
 
-Once the NFA is built, now it suffices to "traverse" this graph by parsing an input string. If, we can start at the initial state (A) and reach state (P) by consuming the whole string and moving through the graph, we can affirm that the input string belongs to the language. The simulation of this is not straightforward. The other option is to convert the NFA into a Deterministic Finite Automata (DFA), which is much easier to traverse, since therea are no ε-transitions. A detailed explanation of another implementation can be found in [2](#ref2). The whole process however is explaine in the textbook [1](#ref1).
+Once the NFA is built, now it suffices to "traverse" this graph by parsing an input string. If, we can start at the initial state (A) and reach state (P) by consuming the whole string and moving through the graph, we can affirm that the input string belongs to the language. The simulation of this is not straightforward. The other option is to convert the NFA into a Deterministic Finite Automata (DFA), which is much easier to traverse, since therea are no ε-transitions. A detailed explanation of another implementation can be found in [2](#ref2). The whole process however is explained in the textbook [1](#ref1).
 
 
 ## References
