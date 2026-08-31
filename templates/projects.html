@@ -2,6 +2,7 @@
 {% block title %}Projects — {{ config.title }}{% endblock %}
 {% block content %}
   <h1>Projects</h1>
+  <p class="tagline">Some of the projects I built.</p>
   <div class="project-grid">
   {% for page in section.pages %}
     <a href="{{ page.permalink }}" class="project-card">
