@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ config.title }}{% endblock %}</title>
   <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+  <link rel="preload" as="image" href="/images/bg-starry.jpg" type="image/jpeg">
+  <link rel="preload" as="image" href="/img/bg-twilight.jpg" type="image/jpeg">
 </head>
-<body>
-  <nav>
-    <a href="{{ get_url(path="@/_index.md") }}">Home</a>
-    <a href="{{ get_url(path="@/about.md")}}">About</a>
-    <a href="{{ get_url(path="@/cv.md") }}">CV</a>
-    <a href="{{ get_url(path="@/projects/_index.md") }}">Projects</a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-  </nav>
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+<body data-theme="light">
+  <div class="page-card">
+    <nav>
+      <a href="{{ get_url(path="@/_index.md") }}">Home</a>
+      <a href="{{ get_url(path="@/about.md")}}">About</a>
+      <a href="{{ get_url(path="@/cv.md") }}">CV</a>
+      <a href="{{ get_url(path="@/projects/_index.md") }}">Projects</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </div>
   <script src="{{ get_url(path="theme.js") }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
 
