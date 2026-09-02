@@ -29,7 +29,7 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2023 - 2026</div>
-    <img src="/images/logos/upc-nou.png" alt="UPC Barcelona logo" class="cv-logo">
+    <img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo">
   </div>
   <div class="cv-details">
     <h3><a href="https://www.fib.upc.edu/en/masters/master-innovation-and-research-informatics/curriculum/specializations/advanced-computing", target="_blank" rel="noopener noreferrer">Masters Degree in Innovation and Research in Informatics (FIB-UPC)</a></h3>
@@ -56,7 +56,7 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2019 - 2023</div>
-    <img src="/images/logos/upc-nou.png" alt="UPC Barcelona logo" class="cv-logo">
+    <img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo">
   </div>
   <div class="cv-details">
     <h3><a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering", target="_blank" rel="noopener noreferrer">Bachelors Degree in Informatic Engineering (FIB-UPC)</a></h3>
@@ -111,7 +111,7 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2021 - 2022</div>
-    <img src="/images/logos/upc-nou.png" alt="UPC Barcelona logo" class="cv-logo">
+    <img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo">
   </div>
   <div class="cv-details">
     <h3>Reinforcement Teacher (UPC)</h3>
