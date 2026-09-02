@@ -25,7 +25,7 @@ body {
   color: var(--text);
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.65;
-  max-width: 720px;
+  max-width: 850px;
   margin: 80px auto;
   padding: 0 24px;
   background-image: url('/images/bg-light.svg');
@@ -189,12 +189,28 @@ pre code {
   border-top: none;
 }
 
+.cv-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 100px;
+  flex-shrink: 0;
+}
 .cv-date {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8rem;
   color: var(--text-dim);
   white-space: nowrap;
   min-width: 100px;
+}
+
+.cv-logo {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  border-radius: 4px;
+  opacity: 0.9;
 }
 
 .cv-details h3 {
@@ -213,6 +229,7 @@ pre code {
   font-size: 0.9rem;
   margin: 0;
 }
+
 
 /*
 .divider {

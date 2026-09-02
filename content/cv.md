@@ -7,7 +7,11 @@ path = "cv"
 ## Education
 
 <div class="cv-entry">
-  <div class="cv-date">Spring 2026</div>
+  <div class="cv-meta">
+    <div class="cv-date">Spring 2026</div>
+    <img src="/images/logos/tu-wien.png" alt="TU Wien logo" class="cv-logo">
+  </div>
+  
   <div class="cv-details">
     <h3>ERASMUS Programme</h3>
     <details>
@@ -23,29 +27,37 @@ path = "cv"
 
 <!-- Sept 2023 - June 2026 -->
 <div class="cv-entry">
-  <div class="cv-date">2023 - 2026</div>
+  <div class="cv-meta">
+    <div class="cv-date">2023 - 2026</div>
+    <img src="/images/logos/upc-nou.png" alt="UPC Barcelona logo" class="cv-logo">
+  </div>
   <div class="cv-details">
     <h3><a href="https://www.fib.upc.edu/en/masters/master-innovation-and-research-informatics/curriculum/specializations/advanced-computing", target="_blank" rel="noopener noreferrer">Masters Degree in Innovation and Research in Informatics (FIB-UPC)</a></h3>
     <details>
     <summary>Speciallized in Advanced Computing</summary>
-    <p>Originally prepared to be followed by a PhD, in this Masters I deepend my knowledge in Computer Science. These are some of the topics I worked on:</p>
-        <ul class="two-col">
-            <li> Randomized Algorithms </li>
-            <li> Computational Complexity </li>
-            <li> Statistical Modelling </li>
-            <li> Machine Learning </li>
-            <li> Algorithmic Game Theory </li>
-            <li> Advanced Data Structures </li>
-            <li> Complex Social Networks </li>
-            <li> Algorithms for VLSI </li>
-        </ul>
-        <p>My thesis is called <i>A Game Theory Approach to Set Thresholds for Influence</i>. It is an experimental work based on studying how the spread of rumors behaves in a social network when the nodes have a certain strength to getting influenced called the <i>threshold</i>. The idea is to use concepts from Algorithmic Game Theory to experimentally study the effect of thresholds on the outcome of the influence spread. The details and results can be consulted in the <a href="https://upcommons.upc.edu/entities/publication/655db72f-b552-40c6-8080-59f732092236", target="_blank", rel="noopener noreferrer">original work</a>. </p>
+    <div class="detailed-content">
+      <p>Originally prepared to be followed by a PhD, in this Masters I deepend my knowledge in Computer Science. These are some of the topics I worked on:</p>
+          <ul class="two-col">
+              <li> Randomized Algorithms </li>
+              <li> Computational Complexity </li>
+              <li> Statistical Modelling </li>
+              <li> Machine Learning </li>
+              <li> Algorithmic Game Theory </li>
+              <li> Advanced Data Structures </li>
+              <li> Complex Social Networks </li>
+              <li> Algorithms for VLSI </li>
+          </ul>
+          <p>My thesis is called <i>A Game Theory Approach to Set Thresholds for Influence</i>. It is an experimental work based on studying how the spread of rumors behaves in a social network when the nodes have a certain strength to getting influenced called the <i>threshold</i>. The idea is to use concepts from Algorithmic Game Theory to experimentally study the effect of thresholds on the outcome of the influence spread. The details and results can be consulted in the <a href="https://upcommons.upc.edu/entities/publication/655db72f-b552-40c6-8080-59f732092236", target="_blank", rel="noopener noreferrer">original work</a>. </p>
+    </div>
   </div>
 </div>
 
 <!-- Sept 2019 - June 2023 -->
 <div class="cv-entry">
-  <div class="cv-date">2019 - 2023</div>
+  <div class="cv-meta">
+    <div class="cv-date">2019 - 2023</div>
+    <img src="/images/logos/upc-nou.png" alt="UPC Barcelona logo" class="cv-logo">
+  </div>
   <div class="cv-details">
     <h3><a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering", target="_blank" rel="noopener noreferrer">Bachelors Degree in Informatic Engineering (FIB-UPC)</a></h3>
     <details>
@@ -69,7 +81,10 @@ path = "cv"
 ## Experience
 <!-- Oct 2024 - Feb 2026 -->
 <div class="cv-entry">
-  <div class="cv-date">2024 - 2026</div>
+  <div class="cv-meta">
+    <div class="cv-date">2024 - 2026</div>
+    <img src="/images/logos/uab.webp" alt="UAB Barcelona logo" class="cv-logo">
+  </div>
   <div class="cv-details">
     <h3>Technical Research Assistant (UAB)</h3>
     <details>
@@ -80,7 +95,10 @@ path = "cv"
 
 <!-- Oct. 2022 - July 2023 -->
 <div class="cv-entry">
-  <div class="cv-date">2022 - 2023</div>
+  <div class="cv-meta">
+    <div class="cv-date">2022 - 2023</div>
+    <img src="/images/logos/bmat.png" alt="BMAT logo" class="cv-logo">
+  </div>
   <div class="cv-details">
     <h3>Orchestra Tour Intern (BMAT Music Innovators)</h3>
     <details>
@@ -91,7 +109,10 @@ path = "cv"
 
 <!-- Sept. 2021 - July 2022 -->
 <div class="cv-entry">
-  <div class="cv-date">2021 - 2022</div>
+  <div class="cv-meta">
+    <div class="cv-date">2021 - 2022</div>
+    <img src="/images/logos/upc-nou.png" alt="UPC Barcelona logo" class="cv-logo">
+  </div>
   <div class="cv-details">
     <h3>Reinforcement Teacher (UPC)</h3>
     <details>
