@@ -9,11 +9,11 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">Spring 2026</div>
-    <img src="/images/logos/tu-wien.png" alt="TU Wien logo" class="cv-logo">
+    <a href="https://www.tuwien.at/en/" target="_blank" rel="noopener noreferrer"> <img src="/images/logos/tu-wien.png" alt="TU Wien logo" class="cv-logo"> </a>
   </div>
   
   <div class="cv-details">
-    <h3>ERASMUS Programme</h3>
+    <h3 style="color:#c97c1f">ERASMUS Programme</h3>
     <details>
     <summary>Studied abroad at TU Wien in Austria</summary>
     <p>I was enrolled in the Masters Degree of Computational Science and I joined two subjects: </p>
@@ -29,10 +29,10 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2023 - 2026</div>
-    <img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo">
+    <a href="https://www.fib.upc.edu/en/masters/master-innovation-and-research-informatics/curriculum/specializations/advanced-computing", target="_blank" rel="noopener noreferrer"><img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo"> </a>
   </div>
   <div class="cv-details">
-    <h3><a href="https://www.fib.upc.edu/en/masters/master-innovation-and-research-informatics/curriculum/specializations/advanced-computing", target="_blank" rel="noopener noreferrer">Masters Degree in Innovation and Research in Informatics (FIB-UPC)</a></h3>
+    <h3 style="color:#c97c1f">Masters Degree in Innovation and Research in Informatics (FIB-UPC)</h3>
     <details>
     <summary>Speciallized in Advanced Computing</summary>
     <div class="detailed-content">
@@ -47,7 +47,7 @@ path = "cv"
               <li> Complex Social Networks </li>
               <li> Algorithms for VLSI </li>
           </ul>
-          <p>My thesis is called <i>A Game Theory Approach to Set Thresholds for Influence</i>. It is an experimental work based on studying how the spread of rumors behaves in a social network when the nodes have a certain strength to getting influenced called the <i>threshold</i>. The idea is to use concepts from Algorithmic Game Theory to experimentally study the effect of thresholds on the outcome of the influence spread. The details and results can be consulted in the <a href="https://upcommons.upc.edu/entities/publication/655db72f-b552-40c6-8080-59f732092236", target="_blank", rel="noopener noreferrer">original work</a>. </p>
+          <p>My thesis is called <i>A Game Theory Approach to Set Thresholds for Influence</i>. It is an experimental work based on studying how the spread of rumors behaves in a social network when the nodes have a certain strength to getting influenced called the <i>threshold</i>. The idea is to use concepts from Algorithmic Game Theory to experimentally study the effect of thresholds on the outcome of the influence spread. The details and results can be consulted in the <a href="https://upcommons.upc.edu/entities/publication/655db72f-b552-40c6-8080-59f732092236" target="_blank", rel="noopener noreferrer">original work</a>. </p>
     </div>
   </div>
 </div>
@@ -56,10 +56,10 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2019 - 2023</div>
-    <img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo">
+    <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering" target="_blank" rel="noopener noreferrer"><img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo"></a>
   </div>
   <div class="cv-details">
-    <h3><a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering", target="_blank" rel="noopener noreferrer">Bachelors Degree in Informatic Engineering (FIB-UPC)</a></h3>
+    <h3 style="color:#c97c1f">Bachelors Degree in Informatic Engineering (FIB-UPC)</h3>
     <details>
     <summary>Speciallized in Computation</summary>
     <p>At my Bachelors I learned about many topics in Computer Engineering, like Software, Hardware, Computer Networks and specially Computer Science. I learned about Software Design, Computer Architectures, Parallelization, Internet Protocols, Operative Systems, Programming, Formal Logic. My specialization was Computer Science, and here I present some of the subjects I enjoyed the most:</p>
@@ -83,10 +83,10 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2024 - 2026</div>
-    <img src="/images/logos/uab.webp" alt="UAB Barcelona logo" class="cv-logo">
+    <a href="https://www.uab.cat/web/universitat-autonoma-de-barcelona-1345467954774.html" target="_blank" rel="noopener noreferrer"><img src="/images/logos/uab.webp" alt="UAB Barcelona logo" class="cv-logo"></a>
   </div>
   <div class="cv-details">
-    <h3>Technical Research Assistant (UAB)</h3>
+    <h3 style="color:#c97c1f">Technical Research Assistant (UAB)</h3>
     <details>
     <summary>Details</summary>
     <p>Worked for the <a href="https://webs.uab.cat/intelligent-transportation-systems/" target="_blank" rel="noopener noreferrer">Intelligent Transport System (UAB)</a> research group. I was involved in the <a href="https://sesar.eu/projects/ANTICIPATE" target="_blank" rel="noopener noreferrer">ANTICIPATE</a> project. My work was to develop a software that computed the number of fligths in an airspace volume given a time value. In this projec, I learnt about software development, since I had to work on a given UML and propose new ideas of how to distribute the code better. I also learned about geodesic algorithms and I had the chance to apply my knowlede of data structures and algorithms to fasten the computation. For the second project I had to work on a discrete-event simulator of a framework model called <a href="https://functionalresonance.com/the-fram-model-visualiser/" target="_blank" rel="noopener noreferrer">FRAM</a>. In this project I gained more knowledege about discrete event processes and how to simulated them properly, as well as real time simulations. </p>
@@ -97,10 +97,10 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2022 - 2023</div>
-    <img src="/images/logos/bmat.png" alt="BMAT logo" class="cv-logo">
+    <a href="https://www.bmat.com/" target="_blank" rel="noopener noreferrer"><img src="/images/logos/bmat.png" alt="BMAT logo" class="cv-logo"></a>
   </div>
   <div class="cv-details">
-    <h3>Orchestra Tour Intern (BMAT Music Innovators)</h3>
+    <h3 style="color:#c97c1f">Orchestra Tour Intern (BMAT Music Innovators)</h3>
     <details>
     <summary>Details</summary>
     <p> At BMAT I worked as a Front-End developer for different web software products. My job was to add new features to the backend or the frontend of the websites. Here I learned almost everything I know of Jira and methologies like Agile. My supervisor taught me all I need to know to have proper software design and how to work together in a team using Git. </p>
@@ -111,10 +111,10 @@ path = "cv"
 <div class="cv-entry">
   <div class="cv-meta">
     <div class="cv-date">2021 - 2022</div>
-    <img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo">
+    <a href="https://www.upc.edu/en" target="_blank" rel="noopener noreferrer"><img src="/images/logos/upc.png" alt="UPC Barcelona logo" class="cv-logo"></a>
   </div>
   <div class="cv-details">
-    <h3>Reinforcement Teacher (UPC)</h3>
+    <h3 style="color:#c97c1f">Reinforcement Teacher (UPC)</h3>
     <details>
     <summary>Details</summary>
     <p> Was involved in the project <i>Aula Lliure</i> as a reinforcement teacher for first year subjects. My job was to provide help to first year students with the subjects <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering/curriculum/syllabus/EC" target="_blank" rel="noopener noreferrer">Computer Organization</a> and <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering/curriculum/syllabus/FM" target="_blank" rel="noopener noreferrer">Fundamentals of Mathematics</a>. I mainly solved the doubts they had from class and provided exercises to do and corrected them afterwards. </p>
