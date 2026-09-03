@@ -304,6 +304,70 @@ pre code {
   margin: 0;
 }
 
+.mermaid-wrapper {
+  width: 100%;
+  height: auto;        /* fixed height, adjust to taste */
+  max-width: 700px;
+  overflow: hidden;      /* pan-zoom handles internal scroll/zoom, not the browser */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: auto;
+}
+
+.mermaid-wrapper svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.svg-pan-zoom-control {
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.svg-pan-zoom-control:hover {
+  opacity: 1;
+}
+
+.svg-pan-zoom-control-background {
+  fill: var(--bg);
+  stroke: rgba(128, 128, 128, 0.3);
+}
+
+.svg-pan-zoom-control-element {
+  fill: var(--text);
+}
+
+.mermaid-wrapper .svg-pan-zoom-control {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.mermaid-wrapper:hover .svg-pan-zoom-control {
+  opacity: 0.6;
+}
+
+.zoom-controls {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.zoom-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.zoom-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 
 /*
 .divider {
