@@ -213,6 +213,25 @@ pre code {
   color: var(--text-dim);
 }
 
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 24px 0;
+  border: 1px solid var(--border);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* CV page style */
 
 .cv-entry {
@@ -240,6 +259,18 @@ pre code {
   min-width: 100px;
   flex-shrink: 0;
 }
+
+.cv-meta a {
+  border: none;
+  display: inline-block;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cv-meta a:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
 .cv-date {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8rem;
