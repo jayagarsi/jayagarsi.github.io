@@ -1,10 +1,10 @@
 +++
-title = "Devpost projects"
+title = "Hackaton projects"
 date = 2025-03-03
 template = "project_page.html"
 
 [extra]
-image = "/images/logos/devpost.png"
+image = "/images/heat-map.png"
 +++
 
 During my university years I participated in different Hackatons, organized by different organizations. All of the projects are uploaded in my [Devpost repository](https://devpost.com/jaya-garcia). Here I will make a small summary on the three of them.
