@@ -39,4 +39,3 @@ document.querySelectorAll('.example-btn').forEach((btn) => {
         runMatch();
     });
 });
-
