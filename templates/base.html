@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ config.title }}{% endblock %}</title>
   <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body data-theme="light">
   <div class="page-card">
@@ -24,7 +25,16 @@
   <script src="{{ get_url(path="regex-demo/regex_demo.js") }}"></script>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+
+    async function updateDiagrams(pattern) {
+      const astSrc = getASTDiagram(pattern);
+      const nfaSrc = getNFADiagram(pattern);
+      const { svg: astSvg } = await mermaid.render('ast-diagram', astSrc);
+      const { svg: nfaSvg } = await mermaid.render('nfa-diagram', nfaSrc);
+      document.getElementById('ast-container').innerHTML = astSvg;
+      document.getElementById('nfa-container').innerHTML = nfaSvg;
+    }
   </script>
   <!--
   <script type="module">
