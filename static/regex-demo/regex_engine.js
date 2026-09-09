@@ -103,6 +103,7 @@ var RegexModule = (() => {
             var b = getMemoryBuffer();
             HEAP8 = new Int8Array(b);
             HEAPU8 = new Uint8Array(b);
+            HEAP32 = new Int32Array(b);
             HEAPU32 = new Uint32Array(b)
         }
 
@@ -288,60 +289,6 @@ var RegexModule = (() => {
             __Unwind_RaiseException(ptr)
         };
         var __abort_js = () => abort("");
-        var getHeapMax = () => 2147483648;
-        var alignMemory = (size, alignment) => Math.ceil(size / alignment) * alignment;
-        var growMemory = size => {
-            var oldHeapSize = wasmMemory.buffer.byteLength;
-            var pages = (size - oldHeapSize + 65535) / 65536 | 0;
-            try {
-                wasmMemory.grow(pages);
-                updateMemoryViews();
-                return 1
-            } catch (e) {}
-        };
-        var HEAPU8;
-        var _emscripten_resize_heap = requestedSize => {
-            var oldSize = HEAPU8.length;
-            requestedSize >>>= 0;
-            var maxHeapSize = getHeapMax();
-            if (requestedSize > maxHeapSize) {
-                return false
-            }
-            for (var cutDown = 1; cutDown <= 4; cutDown *= 2) {
-                var overGrownHeapSize = oldSize * (1 + .2 / cutDown);
-                overGrownHeapSize = Math.min(overGrownHeapSize, requestedSize + 100663296);
-                var newSize = Math.min(maxHeapSize, alignMemory(Math.max(requestedSize, overGrownHeapSize), 65536));
-                var replacement = growMemory(newSize);
-                if (replacement) {
-                    return true
-                }
-            }
-            return false
-        };
-        var getCFunc = ident => {
-            var func = Module["_" + ident];
-            return func
-        };
-        var writeArrayToMemory = (array, buffer) => {
-            HEAP8.set(array, buffer)
-        };
-        var lengthBytesUTF8 = str => {
-            var len = 0;
-            for (var i = 0; i < str.length; ++i) {
-                var c = str.charCodeAt(i);
-                if (c <= 127) {
-                    len++
-                } else if (c <= 2047) {
-                    len += 2
-                } else if (c >= 55296 && c <= 57343) {
-                    len += 4;
-                    ++i
-                } else {
-                    len += 3
-                }
-            }
-            return len
-        };
         var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
             if (!(maxBytesToWrite > 0)) return 0;
             var startIdx = outIdx;
@@ -372,7 +319,135 @@ var RegexModule = (() => {
             heap[outIdx] = 0;
             return outIdx - startIdx
         };
+        var HEAPU8;
         var stringToUTF8 = (str, outPtr, maxBytesToWrite) => stringToUTF8Array(str, HEAPU8, outPtr, maxBytesToWrite);
+        var HEAP32;
+        var __tzset_js = (timezone, daylight, std_name, dst_name) => {
+            var currentYear = (new Date).getFullYear();
+            var winter = new Date(currentYear, 0, 1);
+            var summer = new Date(currentYear, 6, 1);
+            var winterOffset = winter.getTimezoneOffset();
+            var summerOffset = summer.getTimezoneOffset();
+            var stdTimezoneOffset = Math.max(winterOffset, summerOffset);
+            HEAPU32[timezone >> 2] = stdTimezoneOffset * 60;
+            HEAP32[daylight >> 2] = Number(winterOffset != summerOffset);
+            var extractZone = timezoneOffset => {
+                var sign = timezoneOffset >= 0 ? "-" : "+";
+                var absOffset = Math.abs(timezoneOffset);
+                var hours = String(Math.floor(absOffset / 60)).padStart(2, "0");
+                var minutes = String(absOffset % 60).padStart(2, "0");
+                return `UTC${sign}${hours}${minutes}`
+            };
+            var winterName = extractZone(winterOffset);
+            var summerName = extractZone(summerOffset);
+            if (summerOffset < winterOffset) {
+                stringToUTF8(winterName, std_name, 17);
+                stringToUTF8(summerName, dst_name, 17)
+            } else {
+                stringToUTF8(winterName, dst_name, 17);
+                stringToUTF8(summerName, std_name, 17)
+            }
+        };
+        var getHeapMax = () => 2147483648;
+        var alignMemory = (size, alignment) => Math.ceil(size / alignment) * alignment;
+        var growMemory = size => {
+            var oldHeapSize = wasmMemory.buffer.byteLength;
+            var pages = (size - oldHeapSize + 65535) / 65536 | 0;
+            try {
+                wasmMemory.grow(pages);
+                updateMemoryViews();
+                return 1
+            } catch (e) {}
+        };
+        var _emscripten_resize_heap = requestedSize => {
+            var oldSize = HEAPU8.length;
+            requestedSize >>>= 0;
+            var maxHeapSize = getHeapMax();
+            if (requestedSize > maxHeapSize) {
+                return false
+            }
+            for (var cutDown = 1; cutDown <= 4; cutDown *= 2) {
+                var overGrownHeapSize = oldSize * (1 + .2 / cutDown);
+                overGrownHeapSize = Math.min(overGrownHeapSize, requestedSize + 100663296);
+                var newSize = Math.min(maxHeapSize, alignMemory(Math.max(requestedSize, overGrownHeapSize), 65536));
+                var replacement = growMemory(newSize);
+                if (replacement) {
+                    return true
+                }
+            }
+            return false
+        };
+        var ENV = {};
+        var getExecutableName = () => thisProgram;
+        var getEnvStrings = () => {
+            if (!getEnvStrings.strings) {
+                var lang = (globalThis.navigator?.language ?? "C").replace("-", "_") + ".UTF-8";
+                var env = {
+                    USER: "web_user",
+                    LOGNAME: "web_user",
+                    PATH: "/",
+                    PWD: "/",
+                    HOME: "/home/web_user",
+                    LANG: lang,
+                    _: getExecutableName()
+                };
+                for (var x in ENV) {
+                    if (ENV[x] === undefined) delete env[x];
+                    else env[x] = ENV[x]
+                }
+                var strings = [];
+                for (var x in env) {
+                    strings.push(`${x}=${env[x]}`)
+                }
+                getEnvStrings.strings = strings
+            }
+            return getEnvStrings.strings
+        };
+        var _environ_get = (__environ, environ_buf) => {
+            var bufSize = 0;
+            var envp = 0;
+            for (var string of getEnvStrings()) {
+                var ptr = environ_buf + bufSize;
+                HEAPU32[__environ + envp >> 2] = ptr;
+                bufSize += stringToUTF8(string, ptr, Infinity) + 1;
+                envp += 4
+            }
+            return 0
+        };
+        var lengthBytesUTF8 = str => {
+            var len = 0;
+            for (var i = 0; i < str.length; ++i) {
+                var c = str.charCodeAt(i);
+                if (c <= 127) {
+                    len++
+                } else if (c <= 2047) {
+                    len += 2
+                } else if (c >= 55296 && c <= 57343) {
+                    len += 4;
+                    ++i
+                } else {
+                    len += 3
+                }
+            }
+            return len
+        };
+        var _environ_sizes_get = (penviron_count, penviron_buf_size) => {
+            var strings = getEnvStrings();
+            HEAPU32[penviron_count >> 2] = strings.length;
+            var bufSize = 0;
+            for (var string of strings) {
+                bufSize += lengthBytesUTF8(string) + 1
+            }
+            HEAPU32[penviron_buf_size >> 2] = bufSize;
+            return 0
+        };
+        var getCFunc = ident => {
+            var func = Module["_" + ident];
+            return func
+        };
+        var writeArrayToMemory = (array, buffer) => {
+            HEAP8.set(array, buffer)
+        };
         var stackAlloc = sz => __emscripten_stack_alloc(sz);
         var stringToUTF8OnStack = str => {
             var size = lengthBytesUTF8(str) + 1;
@@ -490,11 +565,13 @@ var RegexModule = (() => {
         }
         Module["ccall"] = ccall;
         Module["cwrap"] = cwrap;
-        var _matchRegex, _getLastError, __emscripten_stack_restore, __emscripten_stack_alloc, _emscripten_stack_get_current, memory, __indirect_function_table, wasmMemory;
+        var _matchRegex, _getLastError, _getNFADiagram, _getASTDiagram, __emscripten_stack_restore, __emscripten_stack_alloc, _emscripten_stack_get_current, memory, __indirect_function_table, wasmMemory;
 
         function assignWasmExports(wasmExports) {
             _matchRegex = Module["_matchRegex"] = wasmExports["matchRegex"];
             _getLastError = Module["_getLastError"] = wasmExports["getLastError"];
+            _getNFADiagram = Module["_getNFADiagram"] = wasmExports["getNFADiagram"];
+            _getASTDiagram = Module["_getASTDiagram"] = wasmExports["getASTDiagram"];
             __emscripten_stack_restore = wasmExports["_emscripten_stack_restore"];
             __emscripten_stack_alloc = wasmExports["_emscripten_stack_alloc"];
             _emscripten_stack_get_current = wasmExports["emscripten_stack_get_current"];
@@ -504,7 +581,10 @@ var RegexModule = (() => {
         var wasmImports = {
             __cxa_throw: ___cxa_throw,
             _abort_js: __abort_js,
-            emscripten_resize_heap: _emscripten_resize_heap
+            _tzset_js: __tzset_js,
+            emscripten_resize_heap: _emscripten_resize_heap,
+            environ_get: _environ_get,
+            environ_sizes_get: _environ_sizes_get
         };
         async function run() {
             preRun();
@@ -528,5 +608,4 @@ var RegexModule = (() => {
 if (typeof exports === "object" && typeof module === "object") {
     module.exports = RegexModule;
     module.exports.default = RegexModule
-} else if (typeof define === "function" && define["amd"])
-    define([], () => RegexModule);
+} else if (typeof define === "function" && define["amd"]) define([], () => RegexModule);
