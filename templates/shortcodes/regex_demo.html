@@ -1,90 +1,22 @@
-<style>
-    .subtitle { color: var(--muted); margin-top: 0; margin-bottom: 32px; font-size: 0.95rem; }
-    .panel {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 24px;
-        margin-bottom: 20px;
-    }
-    label {
-        display: block;
-        font-size: 0.85rem;
-        color: var(--muted);
-        margin-bottom: 6px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-    }
-    input {
-        width: 100%;
-        padding: 12px 14px;
-        font-size: 16px;
-        font-family: "SF Mono", Menlo, Consolas, monospace;
-        background: #0d0f15;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        color: var(--text);
-        margin-bottom: 18px;
-    }
-    input:last-child { margin-bottom: 0; }
-    input:focus {
-        outline: none;
-        border-color: var(--accent);
-    }
-    #result {
-        font-size: 1.1rem;
-        font-weight: 600;
-        padding: 14px 16px;
-        border-radius: 8px;
-        margin-top: 4px;
-        min-height: 1.1em;
-    }
-    .match { background: rgba(110,231,183,0.12); color: var(--accent); }
-    .no-match { background: rgba(248,113,113,0.1); color: var(--bad); }
-    .error { background: rgba(251,191,36,0.1); color: var(--warn); }
-    .idle { color: var(--muted); font-weight: 400; }
-    .examples {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 8px;
-    }
-    .example-btn {
-        background: #1f2330;
-        border: 1px solid var(--border);
-        color: var(--muted);
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-family: "SF Mono", Menlo, Consolas, monospace;
-        font-size: 0.85rem;
-        cursor: pointer;
-    }
-    .example-btn:hover { border-color: var(--accent); color: var(--accent); }
-    footer { color: var(--muted); font-size: 0.85rem; margin-top: 32px; text-align: center; }
-    footer a { color: var(--muted); }
-    #status { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
-
-</style>
 <div class="regex-demo">
-    <div id="status">Loading engine…</div>
-    <div class="panel">
-        <label for="pattern">Pattern</label>
-        <input id="pattern" placeholder="(a|b)*c">
-        <label for="input">Input string</label>
-        <input id="input" placeholder="abababc">
-        <div id="result" class="idle">Type a pattern and input string above.</div>
+    <div id="regex-demo-status">Loading engine…</div>
+    <div class="regex-demo-panel">
+        <label class="regex-demo-label" for="pattern">Pattern</label>
+        <input class="regex-demo-input" id="pattern" placeholder="(a|b)*c">
+        <label class="regex-demo-label" for="input">Input string</label>
+        <input class="regex-demo-input" id="input" placeholder="abababc">
+        <div id="result" class="regex-demo-result">Type a pattern and input string above.</div>
     </div>
-    <div>
-        <label>Try an example</label>
-        <div class="examples">
-        <button class="example-btn" data-pattern="(a|b)*" data-input="aba">(a|b)*</button>
-        <button class="example-btn" data-pattern="a+b?" data-input="aaab">a+b?</button>
-        <button class="example-btn" data-pattern="(ab)*c" data-input="ababc">(ab)*c</button>
-        <button class="example-btn" data-pattern="a(b|c)*d" data-input="abcbcd">a(b|c)*d</button>
+    <div class="regex-demo-examples-wrap">
+        <label class="regex-demo-label">Try an example</label>
+        <div class="regex-demo-examples">
+        <button class="regex-demo-example-btn" data-pattern="(a|b)*" data-input="aba">(a|b)*</button>
+        <button class="regex-demo-example-btn" data-pattern="a+b?" data-input="aaab">a+b?</button>
+        <button class="regex-demo-example-btn" data-pattern="(ab)*c" data-input="ababc">(ab)*c</button>
+        <button class="regex-demo-example-btn" data-pattern="a(b|c)*d" data-input="abcbcd">a(b|c)*d</button>
         </div>
     </div>
-    <footer>
+    <footer class="regex-demo-footnote">
         Supports literal chars, <code>|</code>, <code>*</code>, <code>+</code>, <code>?</code>, and <code>()</code> grouping.
     </footer>
 </div>

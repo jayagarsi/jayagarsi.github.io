@@ -368,6 +368,162 @@ pre code {
   color: var(--accent);
 }
 
+/* Regex project styling */
+
+.regex-demo {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--text);
+    max-width: 720px;
+    margin: 24px 0;
+    line-height: 1.5;
+}
+ 
+.regex-demo * {
+    box-sizing: border-box;
+}
+ 
+.regex-demo-status {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+}
+ 
+.regex-demo-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+ 
+.regex-demo-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+ 
+.regex-demo-input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    margin-bottom: 18px;
+}
+ 
+.regex-demo-input:last-of-type {
+    margin-bottom: 0;
+}
+ 
+.regex-demo-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+ 
+.regex-demo-result {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+    min-height: 1.1em;
+}
+ 
+/* Semantic colors (match / no-match / error) stay fixed across themes for
+   clarity, but blended toward the current surface so they never clash. */
+.regex-demo-result--match {
+    background: color-mix(in srgb, #16a34a 16%, var(--surface));
+    color: #16a34a;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+    min-height: 1.1em;
+}
+ 
+.regex-demo-result--no-match {
+    background: color-mix(in srgb, #dc2626 14%, var(--surface));
+    color: #dc2626;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+    min-height: 1.1em;
+}
+ 
+.regex-demo-result--error {
+    background: color-mix(in srgb, var(--accent) 20%, var(--surface));
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+    min-height: 1.1em;
+}
+ 
+.regex-demo-result--idle {
+    color: var(--text-dim);
+    background: transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-top: 18px;
+    min-height: 1.1em;
+}
+ 
+.regex-demo-examples-wrap {
+    margin-bottom: 8px;
+}
+ 
+.regex-demo-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+ 
+.regex-demo-example-btn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+ 
+.regex-demo-example-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+ 
+.regex-demo-footnote {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-top: 24px;
+}
+ 
+.regex-demo-footnote code {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+
 
 /*
 .divider {
