@@ -10,13 +10,13 @@ image = "/images/jsbach.jpg"
 
 This project is a double interpreter for a musical language called JSBach. The language was designed to help implement musical compositions through programming algorithms. This was an assignment developed in the Programming Languages course at UPC. The interpreter is implemented with ANTLR and Python and it works as follows:
 <div class="mermaid-wrapper">
-  <pre class="mermaid">
+    <pre class="mermaid">
     flowchart LR
         a[JSBach] --> b[Python]
-        b-->c[Executable]
-        b-->d[LilyPond]
-        d-->e[PDF]
-        d-->f[Audio]
+        b --> c[Executable]
+        b --> d[LilyPond]
+        d --> e[PDF]
+        d --> f[Audio]
     </pre>
 </div>
 
