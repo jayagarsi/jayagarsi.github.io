@@ -8,9 +8,9 @@ repo_url = "https://github.com/jayagarsi/regex-parser"
 image = "/images/regex.png"
 +++
 
-This project is a hand-written implementation of a Regular Expression engine. It works in two parts: first the regular expression is parsed into an Abstract Syntax Tree by a recursive-descent parser. Then, the AST is parsed bottom-up to generate the Non-Finite Deterministic Automata. Thompton's construction generates a NFA with very nice properties that help us traverse the NFA and see if a given input belongs to the language or not.
+This project is a hand-written implementation of a Regular Expression engine. It works in two parts: first the regular expression is parsed into an Abstract Syntax Tree by a recursive-descent parser. Then, the AST is traversed bottom-up to generate the Non-Finite Deterministic Automata (NFA) using Thompton's algorithm. This construction generates an NFA with very nice properties that help us decide if an input belongs to the language or not.
 
-Below you have an execution of the engine. You can try to define your regular expression and then write an input to see if it matches or not. The syntax is the same as in formal language theory. You can find examples [here](https://en.wikipedia.org/wiki/Regular_expression#Formal_language_theory) or in the Compilers: Techniques and Principles book [[1]](#ref1).
+Below you can try the engine yourself. First, define your regular expression and then, write an input to see if it matches or not. The syntax is the same as in formal language theory. You can find examples [here](https://en.wikipedia.org/wiki/Regular_expression#Formal_language_theory) or in the Compilers: Principles and Techniques book [[1]](#ref1).
 
 {{ regex_demo() }}
 
