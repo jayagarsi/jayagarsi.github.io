@@ -2,11 +2,11 @@ let matchRegex, getLastError;
 RegexModule().then((Module) => {
     matchRegex = Module.cwrap('matchRegex', 'number', ['string', 'string']);
     getLastError = Module.cwrap('getLastError', 'string', []);
-    document.getElementById('status').textContent = 'Engine ready.';
+    //document.getElementById('regex-demo-status').textContent = 'Engine ready.';
     runMatch();
-}).catch((err) => {
-    document.getElementById('status').textContent = 'Failed to load engine: ' + err;
-});
+})//.catch((err) => {
+    //document.getElementById('regex-demo-status').textContent = 'Failed to load engine: ' + err;
+//});
 function runMatch() {
     const resultDiv = document.getElementById('result');
     if (!matchRegex) return;
