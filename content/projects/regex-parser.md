@@ -5,7 +5,7 @@ template = "project_page.html"
 
 [extra]
 repo_url = "https://github.com/jayagarsi/regex-parser"
-image = "/images/regex.png"
+image = "/images/dfa-2.jpg"
 +++
 
 This project is a hand-written implementation of a Regular Expression engine. It works in two parts: first the regular expression is parsed into an Abstract Syntax Tree by a recursive-descent parser. Then, the AST is traversed bottom-up to generate the Non-Finite Deterministic Automata (NFA) using Thompton's algorithm. This construction generates an NFA with very nice properties that help us decide if an input belongs to the language or not.
