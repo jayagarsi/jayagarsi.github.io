@@ -295,13 +295,57 @@ pre code {
 .cv-details p {
   color: var(--text-dim);
   font-size: 0.95rem;
-  margin: 0;
+  margin: 0 0 8px;
 }
 
 .cv-details li {
   color: var(--text-dim);
   font-size: 0.9rem;
   margin: 0;
+}
+
+.cv-entry {
+  margin-block: 1rem;
+}
+
+.expand-toggle {
+  display: none;
+}
+
+.cv-content {
+  overflow: hidden;
+  max-height: 3rem;               /* collapsed preview height, ~3 lines */
+  transition: max-height 0.35s ease;
+}
+
+.expand-toggle:checked ~ .cv-content {
+  max-height: 2000px;              /* large enough to fit any entry fully */
+}
+
+.expand-btn {
+  display: inline-block;
+  margin-top: 6px;
+  cursor: pointer;
+  color: orangered;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.expand-btn:hover {
+  color: #ff6a3d;
+}
+
+.expand-btn .show-less {
+  display: none;
+}
+
+.expand-toggle:checked ~ .expand-btn .show-more {
+  display: none;
+}
+
+.expand-toggle:checked ~ .expand-btn .show-less {
+  display: inline;
 }
 
 .mermaid-wrapper {
