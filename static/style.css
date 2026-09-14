@@ -523,6 +523,27 @@ pre code {
     font-family: 'IBM Plex Mono', monospace;
 }
 
+/* Lunar Lander */
+.landing-videos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.landing-videos video {
+  width: 300px;
+  height: auto;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+@media(max-width: 500px) {
+  .landing-videos {
+    flex-wrap: wrap;
+  }
+}
 
 
 /*
