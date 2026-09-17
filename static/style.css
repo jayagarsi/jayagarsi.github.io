@@ -308,45 +308,179 @@ pre code {
   margin-block: 1rem;
 }
 
-.expand-toggle {
-  display: none;
-}
-
 .cv-content {
+  max-height: 4.5em;   /* roughly 3 lines at your body line-height */
   overflow: hidden;
-  max-height: 3rem;               /* collapsed preview height, ~3 lines */
-  transition: max-height 0.35s ease;
+  position: relative;
+  transition: max-height 0.3s ease;
 }
 
-.expand-toggle:checked ~ .cv-content {
-  max-height: 2000px;              /* large enough to fit any entry fully */
+/* fade-out hint at the bottom when collapsed */
+.cv-content::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, var(--surface));
+  transition: opacity 0.2s ease;
 }
 
 .expand-btn {
-  display: inline-block;
-  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: fit-content;
+  margin: 10px auto 0;
+  padding: 6px 16px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
   cursor: pointer;
-  color: orangered;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
 }
 
 .expand-btn:hover {
-  color: #ff6a3d;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(230, 168, 87, 0.06); /* faint accent tint on hover */
 }
 
-.expand-btn .show-less {
+.expand-btn::after {
+  content: "▾";
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.expand-toggle:checked ~ .expand-btn::after {
+  transform: rotate(180deg);
+}
+
+.expand-toggle:checked ~ .cv-content {
+  max-height: 1000px;  /* large enough to fit full content */
+}
+
+.expand-toggle:checked ~ .cv-content::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.show-less { display: none; }
+.expand-toggle:checked ~ .expand-btn .show-more { display: none; }
+.expand-toggle:checked ~ .expand-btn .show-less { display: inline; }
+
+/* Skills theme */
+
+.skills-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
+  margin: 24px 0;
+}
+
+.skills-group h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.skill-chip:hover {
+  border-color: var(--accent);
+}
+
+.skill-chip.active {
+  border-color: var(--accent);
+}
+
+.skill-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* proficiency panel, injected under the clicked chip's group */
+.skill-proficiency {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
   display: none;
 }
 
-.expand-toggle:checked ~ .expand-btn .show-more {
-  display: none;
+.skill-proficiency.visible {
+  display: block;
 }
 
-.expand-toggle:checked ~ .expand-btn .show-less {
-  display: inline;
+.skill-proficiency-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: var(--text-dim);
 }
+
+.skill-proficiency-track {
+  height: 5px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-proficiency-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.skills-terminal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  margin: 24px 0;
+}
+.prompt { color: var(--accent); margin-right: 8px; }
+.terminal-output {
+  color: var(--text-dim);
+  margin-top: 8px;
+  line-height: 1.8;
+}
+
+/* Mermaid */
 
 .mermaid-wrapper {
   width: 100%;
