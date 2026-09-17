@@ -73,3 +73,95 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
   Was involved in the project <i>Aula Lliure</i> as a reinforcement teacher for first year subjects. My job was to provide help to first year students with the subjects <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering/curriculum/syllabus/EC" target="_blank" rel="noopener noreferrer">Computer Organization</a> and <a href="https://www.fib.upc.edu/en/bachelors/bachelor-degree-informatics-engineering/curriculum/syllabus/FM" target="_blank" rel="noopener noreferrer">Fundamentals of Mathematics</a>. I mainly solved the doubts they had from class and provided exercises to do and corrected them afterwards.
 
 {% end %}
+
+# Skills
+
+<div class="skills-columns">
+  <div class="skills-group">
+    <h4>Programmin</h4>
+    <div class="chip-list">
+      <button class="skill-chip" data-level="90" data-label="Advanced">
+        <img src="/images/icons/cplusplus.svg" alt="" class="skill-icon">
+        <span>C++</span>
+      </button>
+      <button class="skill-chip" data-level="90" data-label="Advanced">
+        <img src="/images/icons/python.svg" alt="" class="skill-icon">
+        <span>Python</span>
+      </button>
+      <button class="skill-chip" data-level="50" data-label="Intermediate">
+        <img src="/images/icons/rust.svg" alt="" class="skill-icon">
+        <span>Java</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="skills-group">
+    <h4>Tools</h4>
+    <div class="chip-list">
+      <button class="skill-chip" data-level="80" data-label="Advanced">
+        <img src="/images/icons/git.svg" alt="" class="skill-icon">
+        <span>Git</span>
+      </button>
+      <button class="skill-chip" data-level="65" data-label="Comfortable">
+        <img src="/images/icons/pytorch.svg" alt="" class="skill-icon">
+        <span>PyTorch</span>
+      </button>
+      <button class="skill-chip" data-level="65" data-label="Comfortable">
+        <img src="/images/icons/apachespark.svg" alt="" class="skill-icon">
+        <span>PySpark</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="skills-columns">
+  <div class="skills-group">
+    <h4>Areas</h4>
+    <div class="chip-list">
+      <button class="skill-chip" data-level="80" data-label="Advanced">
+        <img src="/images/icons/docker.svg" alt="" class="skill-icon">
+        <span>Algorithmics</span>
+      </button>
+      <button class="skill-chip" data-level="80" data-label="Comfortable">
+        <img src="/images/icons/docker.svg" alt="" class="skill-icon">
+        <span>Machine Learning</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/docker.svg" alt="" class="skill-icon">
+        <span>Parallelization</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="skills-group">
+    <h4>Languages</h4>
+    <div class="chip-list">
+      <button class="skill-chip" data-level="100" data-label="Native">
+        <img src="/images/icons/catalan.svg" alt="" class="skill-icon">
+        <span>Catalan</span>
+      </button>
+      <button class="skill-chip" data-level="100" data-label="Native">
+        <img src="/images/icons/spanish.svg" alt="" class="skill-icon">
+        <span>Spanish</span>
+      </button>
+      <button class="skill-chip" data-level="90" data-label="Fluent">
+        <img src="/images/icons/gb.svg" alt="" class="skill-icon">
+        <span>English</span>
+      </button>
+      <button class="skill-chip" data-level="65" data-label="Comfortable">
+        <img src="/images/icons/italian.svg" alt="" class="skill-icon">
+        <span>Italian</span>
+      </button>
+    </div>
+  </div>
+</div>
+<!--
+<div class="skills-terminal">
+  <div class="terminal-line"><span class="prompt">$</span> skills --list</div>
+  <div class="terminal-output">
+    Python, Rust, C++, JavaScript<br>
+    Git, Docker, Linux<br>
+    Compilers, Algorithms, ML
+  </div>
+</div>
+-->
