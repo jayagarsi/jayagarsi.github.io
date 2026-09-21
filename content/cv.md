@@ -88,9 +88,25 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
         <img src="/images/icons/python.svg" alt="" class="skill-icon">
         <span>Python</span>
       </button>
-      <button class="skill-chip" data-level="50" data-label="Intermediate">
-        <img src="/images/icons/rust.svg" alt="" class="skill-icon">
+      <button class="skill-chip" data-level="75" data-label="Comfortable">
+        <img src="/images/icons/r-language.svg" alt="" class="skill-icon">
+        <span>R</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/sql-light.svg" alt="" class="skill-icon">
+        <span>SQL</span>
+      </button>
+      <button class="skill-chip" data-level="55" data-label="Intermediate">
+        <img src="/images/icons/java.svg" alt="" class="skill-icon">
         <span>Java</span>
+      </button>
+      <button class="skill-chip" data-level="50" data-label="Intermediate">
+        <img src="/images/icons/haskell.svg" alt="" class="skill-icon">
+        <span>Haskell</span>
+      </button>
+      <button class="skill-chip" data-level="50" data-label="Intermediate">
+        <img src="/images/icons/erlang.svg" alt="" class="skill-icon">
+        <span>Erlang</span>
       </button>
     </div>
   </div>
@@ -98,9 +114,17 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
   <div class="skills-group">
     <h4>Tools</h4>
     <div class="chip-list">
+      <button class="skill-chip" data-level="90" data-label="Advanced">
+        <img src="/images/icons/linux.svg" alt="" class="skill-icon">
+        <span>Linux</span>
+      </button>
       <button class="skill-chip" data-level="80" data-label="Advanced">
         <img src="/images/icons/git.svg" alt="" class="skill-icon">
         <span>Git</span>
+      </button>
+      <button class="skill-chip" data-level="80" data-label="Advanced">
+        <img src="/images/icons/jira.svg" alt="" class="skill-icon">
+        <span>Jira</span>
       </button>
       <button class="skill-chip" data-level="65" data-label="Comfortable">
         <img src="/images/icons/pytorch.svg" alt="" class="skill-icon">
@@ -109,6 +133,10 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
       <button class="skill-chip" data-level="65" data-label="Comfortable">
         <img src="/images/icons/apachespark.svg" alt="" class="skill-icon">
         <span>PySpark</span>
+      </button>
+      <button class="skill-chip" data-level="65" data-label="Comfortable">
+        <img src="/images/icons/cplex.svg" alt="" class="skill-icon">
+        <span>CPLEX</span>
       </button>
     </div>
   </div>
@@ -119,16 +147,36 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
     <h4>Areas</h4>
     <div class="chip-list">
       <button class="skill-chip" data-level="80" data-label="Advanced">
-        <img src="/images/icons/docker.svg" alt="" class="skill-icon">
+        <img src="/images/icons/parchment.svg" alt="" class="skill-icon">
         <span>Algorithmics</span>
       </button>
       <button class="skill-chip" data-level="80" data-label="Comfortable">
-        <img src="/images/icons/docker.svg" alt="" class="skill-icon">
+        <img src="/images/icons/brain.svg" alt="" class="skill-icon">
         <span>Machine Learning</span>
       </button>
       <button class="skill-chip" data-level="70" data-label="Comfortable">
-        <img src="/images/icons/docker.svg" alt="" class="skill-icon">
+        <img src="/images/icons/parallel.svg" alt="" class="skill-icon">
         <span>Parallelization</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/gear-file.svg" alt="" class="skill-icon">
+        <span>Mathematical Optimization</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/calculator.svg" alt="" class="skill-icon">
+        <span>Computational Complexity</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/puzzle.svg" alt="" class="skill-icon">
+        <span>Game Theory</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/graph.svg" alt="" class="skill-icon">
+        <span>Graph Theory</span>
+      </button>
+      <button class="skill-chip" data-level="70" data-label="Comfortable">
+        <img src="/images/icons/code.svg" alt="" class="skill-icon">
+        <span>Compilers</span>
       </button>
     </div>
   </div>
