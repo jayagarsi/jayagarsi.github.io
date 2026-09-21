@@ -126,6 +126,10 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
         <img src="/images/icons/jira.svg" alt="" class="skill-icon">
         <span>Jira</span>
       </button>
+      <button class="skill-chip" data-level="80" data-label="Advanced">
+        <img src="/images/icons/scipy.svg" alt="" class="skill-icon">
+        <span>SciPy</span>
+      </button>
       <button class="skill-chip" data-level="65" data-label="Comfortable">
         <img src="/images/icons/pytorch.svg" alt="" class="skill-icon">
         <span>PyTorch</span>
