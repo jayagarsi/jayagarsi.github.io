@@ -78,7 +78,7 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
 
 <div class="skills-columns">
   <div class="skills-group">
-    <h4>Programmin</h4>
+    <h4>Programming</h4>
     <div class="chip-list">
       <button class="skill-chip" data-level="90" data-label="Advanced">
         <img src="/images/icons/cplusplus.svg" alt="" class="skill-icon">
