@@ -138,6 +138,10 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
         <img src="/images/icons/apachespark.svg" alt="" class="skill-icon">
         <span>PySpark</span>
       </button>
+      <button class="skill-chip" data-level="75" data-label="Comfortable">
+        <img src="/images/icons/antlr.svg" alt="" class="skill-icon">
+        <span>Antlr</span>
+      </button>
       <button class="skill-chip" data-level="65" data-label="Comfortable">
         <img src="/images/icons/cplex.svg" alt="" class="skill-icon">
         <span>CPLEX</span>
