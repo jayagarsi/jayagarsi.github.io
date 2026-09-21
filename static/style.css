@@ -405,8 +405,8 @@ pre code {
   padding: 6px 14px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--surface);
-  color: var(--text);
+  background: #ffffffd2;
+  color: #14181d;
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   cursor: pointer;
