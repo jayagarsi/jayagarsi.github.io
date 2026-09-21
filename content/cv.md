@@ -74,7 +74,7 @@ Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Co
 
 {% end %}
 
-# Skills
+## Skills
 
 <div class="skills-columns">
   <div class="skills-group">
