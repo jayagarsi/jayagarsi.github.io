@@ -6,7 +6,7 @@ path = "cv"
 
 ## Education
 
-{% cv_entry(title="ERASMUS Programme", date="Spring 2026", id="entry-1", logo_url="https://www.tuwien.at/en/", logo_img="/images/logos/tu-wien.png", logo_alt="TU Wien logo") %}
+{% cv_entry(title="Erasmus+ Programme", date="Spring 2026", id="entry-1", logo_url="https://www.tuwien.at/en/", logo_img="/images/logos/tu-wien.png", logo_alt="TU Wien logo") %}
 Studied abroad at TU Wien in Austria. I was enrolled in the Masters Degree of Computational Science and I joined two subjects:
 
   <ul>
