@@ -62,6 +62,14 @@ body {
   
 }
 
+.math-block {
+  overflow-x: auto;   /* long equations scroll instead of overflowing the card */
+  padding: 8px 0;
+  margin: 16px 0;
+}
+
+.katex { font-size: 1.05em; }
+
 img, svg, video {
   max-width: 100%;
   height: auto;
@@ -481,6 +489,14 @@ pre code {
 }
 
 /* Mermaid */
+
+.brand rect,
+.brand polygon,
+.brand text,
+.brand circle {
+  color: var(--text) !important;
+  fill: var(--surface) !important; 
+}
 
 .mermaid-wrapper {
   width: 100%;
