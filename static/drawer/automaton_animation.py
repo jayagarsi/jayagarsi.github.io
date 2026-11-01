@@ -3,19 +3,19 @@ import matplotlib.animation as animation
 import networkx as nx
 
 # --- Define the DFA for a(b|c)*d ---
-states = ["q0", "q1", "q2"]
-accepting = {"q2"}
-start = "q0"
+states = ["q₀", "q₁", "q₂"]
+accepting = {"q₂"}
+start = "q₀"
 transitions = {
-    ("q0", "a"): "q1",
-    ("q1", "b"): "q1",
-    ("q1", "c"): "q1",
-    ("q1", "d"): "q2",
+    ("q₀", "a"): "q₁",
+    ("q₁", "b"): "q₁",
+    ("q₁", "c"): "q₁",
+    ("q₁", "d"): "q₂",
 }
 input_string = "abcbcd"
 
 # Fixed positions so the layout doesn't jitter between frames
-pos = {"q0": (0, 0), "q1": (1, 0), "q2": (2, 0)}
+pos = {"q₀": (0, 0), "q₁": (1, 0), "q₂": (2, 0)}
 
 G = nx.MultiDiGraph()
 G.add_nodes_from(states)
@@ -87,7 +87,7 @@ def draw_frame(frame_idx):
 
     # Input track at the bottom
     track_y = -0.9
-    start_x = 0.5
+    start_x = 0.25
     for i, ch in enumerate(input_string):
         cx = start_x + i * 0.3
         if i < frame_idx:
@@ -107,14 +107,15 @@ def draw_frame(frame_idx):
         status = "Accepted ✓" if accepted else "Rejected ✗"
         status_color = NODE_ACCEPT_BORDER if accepted else "#ff6b6b"
     else:
-        status = f"reading '{input_string[frame_idx]}'"
+        status = f"Reading '{input_string[frame_idx]}'"
         status_color = TEXT
-    ax.annotate(status, (1.1, 0.95), color=status_color, fontsize=10,
+    ax.annotate(status, (1.02, 0.95), color=status_color, fontsize=10,
                 ha="center", family="monospace")
 
 
-frames = len(state_sequence)
-anim = animation.FuncAnimation(fig, draw_frame, frames=frames, interval=900, repeat=True)
+if __name__ == "__main__":
+    frames = len(state_sequence)
+    anim = animation.FuncAnimation(fig, draw_frame, frames=frames, interval=900, repeat=True)
 
-anim.save("/home/claude/automaton-demo.gif", writer="pillow", fps=1.1)
-print("done")
+    anim.save("./out/automaton-demo.gif", writer="pillow", fps=1.1)
+    print("done")
