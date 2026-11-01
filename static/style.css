@@ -17,6 +17,11 @@
   --border: rgba(230, 230, 230, 0.12);
 }
 
+.theme-dark { display: none; }
+
+[data-theme="dark"] .theme-light { display: none; }
+[data-theme="dark"] .theme-dark { display: inline; }
+
 html {
   min-height: 100%;
 }
@@ -804,6 +809,8 @@ pre code {
 }
 .post-body h2 {
   margin-top: 2em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
 }
 .post-body p {
   margin-bottom: 1.2em;
