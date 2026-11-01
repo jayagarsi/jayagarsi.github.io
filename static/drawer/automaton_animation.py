@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import networkx as nx
+from config import light_mode, dark_mode
 
 # --- Define the DFA for a(b|c)*d ---
 states = ["q₀", "q₁", "q₂"]
@@ -22,13 +23,15 @@ G.add_nodes_from(states)
 for (src, sym), dst in transitions.items():
     G.add_edge(src, dst, label=sym)
 
+theme = light_mode()
+
 # Colors matching the site's amber/copper theme
-BG = "#0d1117"
-NODE_DEFAULT = "#161b22"
+BG = theme["background"]
+NODE_DEFAULT = theme["surface"]
 NODE_BORDER = "#8b949e"
-NODE_CURRENT = "#e3a857"
+NODE_CURRENT = theme["accent"]
 NODE_ACCEPT_BORDER = "#4ecdc4"
-TEXT = "#e6e6e6"
+TEXT = theme["text"]
 EDGE_COLOR = "#8b949e"
 
 # Precompute the sequence of states as input is consumed
@@ -117,5 +120,5 @@ if __name__ == "__main__":
     frames = len(state_sequence)
     anim = animation.FuncAnimation(fig, draw_frame, frames=frames, interval=900, repeat=True)
 
-    anim.save("./out/automaton-demo.gif", writer="pillow", fps=1.1)
+    anim.save("./out/automaton-demo-light.gif", writer="pillow", fps=1.1)
     print("done")
