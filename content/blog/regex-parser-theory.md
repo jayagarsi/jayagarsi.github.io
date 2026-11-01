@@ -202,11 +202,11 @@ The notation can be a bit confusing the first time, but the idea behind it is si
 
 Automatas are machines that process an input string one character at a time while moving through a set of states. Very dense definition indeed. Since an image is worth more than a thousand words, belowe I present a gif representing an automata. I said that we need automatas to process regular expressions. And one might reasonably wonder: "What does a string have anything to do with a graph?". Well my dear readers, some years ago, some researchers in some journal published a paper proving that every regular expression has an equivalent automata that represents it [[1](#ref1)] [[2](#ref2)]. Magical really. But before going into more details on that, the automata here represents the expression ```a(b|c)*d```.
 
-![DFA processing "asda](/images/automaton-demo.gif)
+{{ themed_img(light="/drawer/out/automaton-demo-light.gif", dark="/drawer/out/automaton-demo-dark.gif", alt="DFA processing abcbcd") }}
 
 As the little animation (made by me) shows, there is an initial state (the one with no incoming edges) and an accepting state (marked in blue). The automata consumes the string, character by character until it is completely parsed. Starting from the initial state, it moves around consuming the string. If by the end of the string, the automata is in an accepting state, we say that the input string is recognised by the machine. Very simple and fun stuff if you ask me.
 
-But now, how does one compute this graph? That is the tricky part. We need a few things; first, we need to parse the regular expression and properly recognise where the operators lie. Secondly, once we have parsed the expression, we must build the automata that is equivalent to this expression. Looks hard, but we'll go over the whole process in detail.  
+But now, how does one compute this graph? That is the tricky part. We need a few things; first, we need to parse the regular expression and properly recognise where the operators lie. Secondly, once we have parsed the expression, we must build the automata that is equivalent to this expression. Looks hard, but we'll go over the whole process in detail.
 
 ## Regex syntax parsing
 The first thing to do is to analyze the regular expression. This comes as a string in the input, but there are special characters like ```*```, ```|``` or ```()``` that must be treated specially. Operator precedence must be preserved, since ```(a|b)*``` is not the same as ```a|b*```, which is equivalent to ```a|(b*)```. To do so, the very wise bible of compilers [[2](#ref2)], shows us how to use a Recursive-Descent parser to get the expression ordered by preference. Before getting into the details let us check what this would look like for the previous example.
@@ -241,17 +241,11 @@ atom    &\rightarrow CHAR \text{ | '(' } expr \text{ ')'}
 
 Having the grammar, the recursive-descent parser is very easy to implement, since we each rule corresponds to one method in code.
 
-Now we (mostly) now how to parse a regular expression. Let us go now to the real deal.
+Now we (mostly) know how to parse a regular expression. Let us go now to the real deal.
 
 ## Thompston's construction
 
-Thompston's algorithm is a method that describes how to build Non-Finite Deterministic Automatas from given regular expressions. The idea is very simple
-
-1) Parse the Abstract Syntax Tree bottom-up, i.e., from the leafs to the root.
-2) Construct an NFA state from a given AST node.
-3) Join the state with the built NFA.
-
-This instructions are not very clear I must say. Since a picture is worth a thousand words, let us see what Thompson's algorithm says.
+Thompston's algorithm is a method that describes how to build Non-Finite Deterministic Automatas from given regular expressions. The idea is to recursively build the NFA by traversing the AST. Thompston's method says how each element in a regular expression must be transformed into a NFA. Since a picture is worth a thousand words, below you can find how each element is translated into a state machine. 
 
 <div class="thompson-wrap">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -345,7 +339,7 @@ This instructions are not very clear I must say. Since a picture is worth a thou
       <th scope="row" data-label="Question">Question</th>
       <td data-label="Regex"><code>R?</code></td>
       <td data-label="NFA fragment">
-        <svg class="nfa" viewBox="0 0 300 150" role="img" aria-label="New start and accept states around R, with an epsilon loop back into R and an epsilon bypass">
+        <svg class="nfa" viewBox="0 0 300 150" role="img" aria-label="If R is present jump to it, otherwise go to final state.">
           <path class="e" d="M2,75 L18,75"/>
           <rect class="box-r" x="100" y="55" width="100" height="40" rx="8"/><text x="150" y="80" text-anchor="middle">R</text>
           <path class="e eps" d="M45,75 L98,75"/>
@@ -357,6 +351,20 @@ This instructions are not very clear I must say. Since a picture is worth a thou
       </td>
       <td data-label="Intuition">Branch if R is not present.</td>
     </tr>
+    <tr>
+      <th scope="row" data-label="Plus">Plus</th>
+      <td data-label="Regex"><code>R+</code></td>
+      <td data-label="NFA fragment">
+        <svg class="nfa" viewBox="0 0 300 150" role="img" aria-label="Start with R and then go back or go to final state">
+          <path class="e" d="M5,75 L28,75"/>
+          <path class="e eps" d="M130,75 L210,75"/>
+          <path class="e eps" d="M230,55 C185,10 115,10 80,53"/>
+          <rect class="box-r" x="30" y="52" width="100" height="46" rx="8"/><text x="80" y="80" text-anchor="middle">R</text>
+          <circle class="s" cx="230" cy="75" r="19"/><circle class="s in new" cx="230" cy="75" r="15"/>
+        </svg>
+      </td>
+      <td data-label="Intuition">Traverse R and then repeat or go to final state.</td>
+    </tr>
   </tbody>
 </table>
 <p class="legend">Dashed orange edges are ε-transitions (no input consumed). Solid edges read a symbol. Orange states are the ones the rule adds. Double ring = accept state.</p>
@@ -366,7 +374,14 @@ Maybe the idea can be seen better now. The algorithm recursively builds the NFA 
 
 So now, the last question that must be answered. We have parsed the expression, and we have built the Automata. But how do we check if a string matches the expression? Now that is the last step.
 
+## Moving through the Automata
 
+
+
+
+## Conclusion
+
+Just to finish off this marvelous post, I want to share a bit of my thoughts. Even though this is a nice review on formal language theory, syntax analysis and regular expressions, most of the regular expression engines are much more complex than this. Take the [re python library](https://docs.python.org/3/library/re.html). This allows for many more operators and things such as backtracking. For those cases, Finite Automatas loose power since they do not have the capabilities to deal with certain operations. However, most of the operations and tools can be implemented using Automatas or ideas from them. Hence, the basis are always nice to know.
 
 ## References
 
