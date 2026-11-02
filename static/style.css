@@ -17,10 +17,36 @@
   --border: rgba(230, 230, 230, 0.12);
 }
 
-.theme-dark { display: none; }
+.themed-img {
+  margin: 24px 0;
+  text-align: center;
+  width: 100%;
+  height: auto;        /* fixed height, adjust to taste */
+  max-width: 700px;
+  overflow: hidden;      /* pan-zoom handles internal scroll/zoom, not the browser */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin: auto;
+}
 
-[data-theme="dark"] .theme-light { display: none; }
-[data-theme="dark"] .theme-dark { display: inline; }
+.themed-img img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.themed-img .theme-dark { display: none; }
+
+[data-theme="dark"] .themed-img .theme-light { display: none; }
+[data-theme="dark"] .themed-img .theme-dark { display: block; }
+
+.themed-img figcaption {
+  margin-top: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
 
 html {
   min-height: 100%;

@@ -1,2 +1,5 @@
-<img src="{{ light }}" alt="{{ alt }}" class="theme-light" loading="lazy">
-<img src="{{ dark }}" alt="{{ alt }}" class="theme-dark" loading="lazy">
+<figure class="themed-img">
+  <img src="{{ light }}" alt="{{ alt }}" class="theme-light" loading="lazy">
+  <img src="{{ dark }}" alt="{{ alt }}" class="theme-dark" loading="lazy">
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+</figure>
