@@ -384,7 +384,7 @@ So now, the last question that must be answered. We have parsed the expression, 
 
 ## Conclusion
 
-Just to finish off this marvelous post, I want to share a bit of my thoughts. Even though this is a nice review on formal language theory, syntax analysis and regular expressions, most of the regular expression engines are much more complex than this. Take the [re python library](https://docs.python.org/3/library/re.html). This allows for many more operators and things such as backtracking. For those cases, Finite Automatas loose power since they do not have the capabilities to deal with certain operations. However, most of the operations and tools can be implemented using Automatas or ideas from them. Hence, the basis are always nice to know.
+Just to finish off this marvelous post, I want to share a bit of my thoughts. Even though this is a nice review on formal language theory, syntax analysis and regular expressions, most of the regular expression engines are much more complex than this. Take the [re python library](https://docs.python.org/3/library/re.html). This allows for many more operators and things such as backtracking. For those cases, Finite Automatas loose power since they do not have the capabilities to deal with certain operations. However, the base ideas always remain and it is nice to know them.
 
 ## References
 
