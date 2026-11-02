@@ -211,18 +211,21 @@ But now, how does one compute this graph? That is the tricky part. We need a few
 ## Regex syntax parsing
 The first thing to do is to analyze the regular expression. This comes as a string in the input, but there are special characters like ```*```, ```|``` or ```()``` that must be treated specially. Operator precedence must be preserved, since ```(a|b)*``` is not the same as ```a|b*```, which is equivalent to ```a|(b*)```. To do so, the very wise bible of compilers [[2](#ref2)], shows us how to use a Recursive-Descent parser to get the expression ordered by preference. Before getting into the details let us check what this would look like for the previous example.
 
+{{ themed_img(light="/drawer/out/graph-light.png", dark="/drawer/out/graph-dark.png", alt="DFA processing abcbcd") }}
 
+<!--
 <div class="mermaid-wrapper">
     <pre class="mermaid">
     flowchart LR
-        a(("·")):::brand --> b(("*")):::brand
-        a --> c(("d")):::brand
-        b --> d(("·")):::brand
-        d --> e(("|")):::brand
-        e --> f(("b")):::brand
-        e --> g(("c")):::brand
+        a(("·")):::brand -- b(("*")):::brand
+        a -- c(("d")):::brand
+        b -- d(("·")):::brand
+        d -- e(("|")):::brand
+        e -- f(("b")):::brand
+        e -- g(("c")):::brand
     </pre>
 </div>
+-->
 
 The symbol "·" represents de concatenation between strings, hence, ```ab``` is equivalent to ```a·b```. If anyone is interested, this tree is called an Abstract Syntax Tree. To simplify, it does just what we wanted: represent in a simple form (a tree) the operator preference in the regular expression. Each level in the tree corresponds to a different operator coverage. Such a nice and simple thing to compute. The idea behind it is a bit more complex. It involves LL(1)-grammars and other aspects of formal language theory.
 
