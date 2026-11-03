@@ -200,13 +200,15 @@ The notation can be a bit confusing the first time, but the idea behind it is si
 
 ## Finite Automata Theory
 
-Automatas are machines that process an input string one character at a time while moving through a set of states. Very dense definition indeed. Since an image is worth more than a thousand words, belowe I present a gif representing an automata. I said that we need automatas to process regular expressions. And one might reasonably wonder: "What does a string have anything to do with a graph?". Well my dear readers, some years ago, some researchers in some journal published a paper proving that every regular expression has an equivalent automata that represents it [[1](#ref1)] [[2](#ref2)]. Magical really. But before going into more details on that, the automata here represents the expression ```a(b|c)*d```.
+Automatas are machines that process an input string one character at a time while moving through a set of states. Very dense definition indeed. Since an image is worth more than a thousand words, below I present a gif representing an automata. I said that we need automatas to process regular expressions. And one might reasonably wonder: "What does a string have anything to do with a graph?". Well my dear readers, some years ago, some researchers in some journal published a paper proving that every regular expression has an equivalent automata that represents it [[1](#ref1)] [[2](#ref2)]. Magical really. But before going into more details on that, the automata here represents the expression ```a(b|c)*d```.
 
 {{ themed_img(light="/drawer/out/automaton-demo-light.gif", dark="/drawer/out/automaton-demo-dark.gif", alt="DFA processing abcbcd") }}
 
-As the little animation (made by me) shows, there is an initial state (the one with no incoming edges) and an accepting state (marked in blue). The automata consumes the string, character by character until it is completely parsed. Starting from the initial state, it moves around consuming the string. If by the end of the string, the automata is in an accepting state, we say that the input string is recognised by the machine. Very simple and fun stuff if you ask me.
+As the little animation shows, there is an initial state (the one with no incoming edges) and an accepting state (marked in blue). The automata consumes the string, character by character until it is completely parsed. Starting from the initial state, it moves around consuming the string. If by the end of the string the automata is in an accepting state, we say that the input string is recognised by the machine. Very simple and fun stuff if you ask me. 
 
-But now, how does one compute this graph? That is the tricky part. We need a few things; first, we need to parse the regular expression and properly recognise where the operators lie. Secondly, once we have parsed the expression, we must build the automata that is equivalent to this expression. Looks hard, but we'll go over the whole process in detail.
+The automata shown in the animation is what we call a _Deterministic Finite Atuomata_ (DFA). It is deterministic since the same input always yields the same sequence of state traversals and output. As one can imagine, there is the non deterministic version of this. Guess what it is called. That's right: _Non-Deterministic Finite Automatas_ (NFA). These automatas have a special transition called ɛ-transition. An ɛ-transition represents a non-deterministic choice. It means that the edges that have this ɛ character, may or may not be crossed, independently of the parsed character. It is as if some kind of external entity could choose which ɛ edges are crossed and which not. That is the beauty of non-determinisim but that's taking us away from the point. We'll see examples of NFA later.
+
+But now, how does one compute this automata? That is the tricky part. We need a few things; first, we need to parse the regular expression and properly recognise where the operators lie. Secondly, once we have parsed the expression, we must build the automata that is equivalent to this expression. Looks hard, but we'll go over the whole process in detail.
 
 ## Regex syntax parsing
 The first thing to do is to analyze the regular expression. This comes as a string in the input, but there are special characters like ```*```, ```|``` or ```()``` that must be treated specially. Operator precedence must be preserved, since ```(a|b)*``` is not the same as ```a|b*```, which is equivalent to ```a|(b*)```. To do so, the very wise bible of compilers [[2](#ref2)], shows us how to use a Recursive-Descent parser to get the expression ordered by preference. Before getting into the details let us check what this would look like for the previous example.
@@ -229,7 +231,7 @@ The first thing to do is to analyze the regular expression. This comes as a stri
 
 The symbol "·" represents de concatenation between strings, hence, ```ab``` is equivalent to ```a·b```. If anyone is interested, this tree is called an Abstract Syntax Tree. To simplify, it does just what we wanted: represent in a simple form (a tree) the operator preference in the regular expression. Each level in the tree corresponds to a different operator coverage. Such a nice and simple thing to compute. The idea behind it is a bit more complex. It involves LL(1)-grammars and other aspects of formal language theory.
 
-Imagine we could have a way of describing how the regular expressions can be formed. We could say how the operators ```*```, ```|``` and ```?``` can be used and what is the syntax that must be used. Just like how grammar explains how sentences can be formed given a set of words. This is exactly the same behavior for formal grammars. Given a set of words in an alphabet, it tells us how we can form "sentences". Notice that the term sentence here applies a bit differently than with spoken languages. If you want more information on this the Sipser book [[1](#ref1)] covers this very well. For the curios people, this is the LL(1) grammar that was used to parse the expressions:
+Imagine we could have a way of describing how the regular expressions can be formed. We could say how the operators ```*```, ```|``` and ```?``` can be used and what is the syntax that must be used. Just like the way in which grammar explains how sentences can be formed given a set of words. This is exactly the same behavior for formal grammars. Given a set of words in an alphabet, it tells us how we can form "sentences". Notice that the term sentence here applies a bit differently than with spoken languages. If you want more information on this, the Sipser book [[1](#ref1)] covers this very well. For the curios people, this is the LL(1) grammar that was used to parse the expressions:
 
 {% math() %}  
 \begin{align}
@@ -242,13 +244,13 @@ atom    &\rightarrow CHAR \text{ | '(' } expr \text{ ')'}
 {% end %}
 
 
-Having the grammar, the recursive-descent parser is very easy to implement, since we each rule corresponds to one method in code.
+Having the grammar, the recursive-descent parser is very easy to implement. It suffices only to define one method for each rule and properly manage which characters and other methods must be called. 
 
 Now we (mostly) know how to parse a regular expression. Let us go now to the real deal.
 
 ## Thompston's construction
 
-Thompston's algorithm is a method that describes how to build Non-Finite Deterministic Automatas from given regular expressions. The idea is to recursively build the NFA by traversing the AST. Thompston's method says how each element in a regular expression must be transformed into a NFA. Since a picture is worth a thousand words, below you can find how each element is translated into a state machine. 
+Thompston's algorithm is a method that describes how to build Non-Finite Deterministic Automatas from given regular expressions. The idea is to recursively build the NFA by traversing the AST level by level, starting from the leaves. Given each type of node in the AST, Thompston's method defines how each  must be transformed into a NFA. You can see below each transformation.
 
 <div class="thompson-wrap">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -375,16 +377,33 @@ Thompston's algorithm is a method that describes how to build Non-Finite Determi
 
 Maybe the idea can be seen better now. The algorithm recursively builds the NFA by starting from the characters and going up to higher priority operators. This ensures a certain structure that makes the graph have some very nice properties.
 
+Let us see how this would be converted with the example before ```a(b|c)*d```.
+
+{{ themed_img(light="/drawer/out/thompstons-graph-light.png", dark="/drawer/out/thompstons-graph-dark.png", alt="DFA processing abcbcd") }}
+
+If one looks at this automata and at the AST, it is easy to see how it was built.
+
 So now, the last question that must be answered. We have parsed the expression, and we have built the Automata. But how do we check if a string matches the expression? Now that is the last step.
 
 ## Moving through the Automata
 
+Just as we showed with the DFA before, we need to traverse the automata to see if the input character is accepted or not. However, the generated automata with Thompston's method is an NFA, therefore it has ɛ-transitions. When we encounter one of these, we cannot be sure if we have to take it or not. But, thankfully, Thompston's method ensures the following property properties:
 
+Each node has at most two outgoing-edges, one of the following:
+- One edge labeled with a character
+- At most two edges of ɛ-transition
 
+For reasons we will not trouble ourselves with, this helps us traverse the graph by "grouping" all the possible lambda transitions each character we process. Look at the following animation.
+
+{{ themed_img(light="/drawer/out/thompstons-traversal-demo-light.gif", dark="/drawer/out/thompstons-traversal-demo-dark.gif", alt="DFA processing abcbcd") }}
+
+At each processed character of the input string, we move through the automata. For character labeled transitions this is straightforward. For ɛ-transitions, the algorithm looks for all the states we can reach with only ɛ-transitions. These can be "joined" into one group, since they do not give any information about the input character. If we keep going doing this at each input character, we will know if the string is accepted when the possible new states reached include the accepting state.
 
 ## Conclusion
 
-Just to finish off this marvelous post, I want to share a bit of my thoughts. Even though this is a nice review on formal language theory, syntax analysis and regular expressions, most of the regular expression engines are much more complex than this. Take the [re python library](https://docs.python.org/3/library/re.html). This allows for many more operators and things such as backtracking. For those cases, Finite Automatas loose power since they do not have the capabilities to deal with certain operations. However, the base ideas always remain and it is nice to know them.
+Just to finish off this marvelous post, I want to share a bit of my thoughts. This is a very dense thing to understand from scracth. It took me a while to grasp most of the things and I already had some knowledge of this. This post is just aimed to showcase how the process works to any type of reader. For more information one can look at the references, which explain this far better than I ever could.
+
+Even though this is a nice review on formal language theory, syntax analysis and regular expressions, most of the regular expression engines are much more complex than this. Take the [re python library](https://docs.python.org/3/library/re.html). This allows for many more operators and things such as backtracking. For those cases, Finite Automatas loose power since they do not have the capabilities to deal with certain operations. However, the base ideas always remain and it is nice to know them.
 
 ## References
 
