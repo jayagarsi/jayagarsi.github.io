@@ -842,3 +842,78 @@ pre code {
   margin-bottom: 1.2em;
 }
 
+/** Proofs and theorems **/
+.post-body { counter-reset: thm; }
+
+.thm {
+  counter-increment: thm;
+  margin: 24px 0;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+}
+
+.thm-head {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.thm-label {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.thm-label::after { content: " " counter(thm); }
+.thm-title { color: var(--text-dim); }
+
+.thm-body { overflow-x: auto; }   /* wide equations scroll instead of spilling out */
+.thm-body > :last-child { margin-bottom: 0; }
+
+/* quieter kinds: definitions get a muted border, remarks/examples are unnumbered and dashed */
+.thm-definition { border-left-color: var(--text-dim); }
+.thm-definition .thm-label { color: var(--text-dim); }
+
+.thm-remark,
+.thm-example {
+  counter-increment: none;
+  background: none;
+  border-style: dashed;
+  border-left-color: var(--border);
+}
+.thm-remark .thm-label,
+.thm-example .thm-label { color: var(--text-dim); }
+.thm-remark .thm-label::after,
+.thm-example .thm-label::after { content: none; }
+
+/* proofs: lighter than the statement so the theorem stays the focus */
+details.proof {
+  background: none;
+  border: none;
+  border-left: 2px solid var(--border);
+  border-radius: 0;
+  padding: 0 0 0 16px;
+  margin: 0 0 24px;
+}
+
+.proof summary {
+  justify-content: flex-start;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+.proof-body { margin-top: 10px; overflow-x: auto; }
+.proof-body > p:last-of-type { display: inline; }
+
+.qed {
+  display: block;
+  text-align: right;
+  color: var(--text-dim);
+}

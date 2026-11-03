@@ -1,0 +1,7 @@
+{% set k = kind | default(value="theorem") %}
+<div class="thm thm-{{ k }}"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="thm-head">
+    <span class="thm-label">{{ k | capitalize }}</span>{% if title %} <span class="thm-title">({{ title }})</span>{% endif %}
+  </div>
+  <div class="thm-body">{{ body | safe }}</div>
+</div>

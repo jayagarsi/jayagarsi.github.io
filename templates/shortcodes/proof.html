@@ -1,0 +1,4 @@
+<details class="proof"{% if not collapsed %} open{% endif %}>
+  <summary>{{ label | default(value="Proof") }}</summary>
+  <div class="proof-body">{{ body | safe }}<span class="qed">∎</span></div>
+</details>
